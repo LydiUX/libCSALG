@@ -44,6 +44,11 @@ namespace CSALG{
             static int GCD(int a, int b);
             static int LCM(int a, int b);
     };
+    class SearchAlgorithm{
+        public:
+            static void BreathFirst(int arr[], int n);
+            static void DepthFirst(int arr[], int n);
+    };
 }
 
 #pragma GCC visibility pop
