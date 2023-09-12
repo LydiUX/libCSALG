@@ -12,6 +12,8 @@
 /* The classes below are exported */
 #pragma GCC visibility push(default)
 
+#include <vector>
+
 typedef long double ld;
 
 namespace CSALG{
