@@ -1,12 +1,13 @@
 //
-//  libCSALG.hpp
-//  libCSALG
+//  CSALG.hpp
+//  CSALG
 //
 //  Created by Jack Shi on 2023-09-11.
 //
+//  link with g++ example.cpp -lCSALG
 
-#ifndef libCSALG_
-#define libCSALG_
+#ifndef CSALG_
+#define CSALG_
 
 /* The classes below are exported */
 #pragma GCC visibility push(default)
@@ -35,6 +36,7 @@ namespace CSALG{
             static ld RungeKutta4(ld (*f)(ld, ld), ld initx, ld inity, ld evaluatedx, int steps);
             static ld NumericIntegrate(ld (*f)(ld, ld), ld xi, ld xf, int steps, int method);
             static ld Newton(ld (*f)(ld), ld guess, int steps);
+            static ld NumericDifferentiate(ld (*f)(ld), ld evalpoint, ld steps);
     };
     class MathAlgorithm{
         public:

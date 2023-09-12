@@ -1,13 +1,12 @@
 //
-//  libCSALG.cpp
-//  libCSALG
+//  CSALG.cpp
+//  CSALG
 //
 //  Created by Jack Shi on 2023-09-11.
 //
 
 #include <iostream>
-#include "libCSALG.hpp"
-#include "libCSALGPriv.hpp"
+#include "CSALG.hpp"
 #include <vector>
 #include <cmath>
 #include <cstdio>
@@ -311,6 +310,9 @@ namespace CSALG{
         }
         throw std::invalid_argument("Failed to converge");
     }
+    ld Analysis::NumericDifferentiate(ld (*f)(ld), ld evalpoint, ld steps){
+        return 0.5 * (1 / steps) * ((*f)(evalpoint + steps) - (*f)(evalpoint - steps));
+    }
     int MathAlgorithm::EulerPhi(int n){
         int res = n;
         for (int i = 2; i * i < n - 1; i++){
@@ -336,4 +338,3 @@ namespace CSALG{
         return std::abs(a * b) / MathAlgorithm::GCD(a, b);
     }
 }
-
