@@ -337,4 +337,44 @@ namespace CSALG{
     int MathAlgorithm::LCM(int a, int b){
         return std::abs(a * b) / MathAlgorithm::GCD(a, b);
     }
+    void MathAlgorithm::RowEchelon(std::vector<std::vector<ld>>& matrix){
+        int size = matrix.size();
+        ld ratio = 0;
+        if (matrix.size() != matrix[0].size()){
+            throw std::runtime_error("Matrix must be square\n");
+        }
+        for (int i = 0; i < size - 1; i++){
+            for (int j = size - 1; j > i; j--){
+                if (matrix[i][j] == 0){
+                    continue;
+                }
+                else{
+                    try{
+                        if (matrix[j - i][i] == 0){
+                            throw std::runtime_error("Division by Zero\n");
+                        }
+                        ratio = matrix[j][i] / matrix[j - 1][i];
+                    }
+                    catch (std::runtime_error& except){
+                        for (int k = 0; k < size; k++){
+                            std::swap(matrix[j][k], matrix[j - 1][k]);
+                        }
+                        continue;
+                    }
+                    for (int l = 0; l < size; l++){
+                        matrix[j][l] = matrix[j][l] - ratio * matrix[j - 1][l];
+                    }
+                }
+            }
+        }
+    }
+    ld MathAlgorithm::Determinant(std::vector<std::vector<ld>> matrix){
+        int size = matrix.size();
+        ld det = 1;
+        MathAlgorithm::RowEchelon(matrix);
+        for (int i = 0; i < size; i++){
+            det *= matrix[i][i];
+        }
+        return det;
+    }
 }

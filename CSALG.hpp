@@ -43,6 +43,8 @@ namespace CSALG{
             static int EulerPhi(int n);
             static int GCD(int a, int b);
             static int LCM(int a, int b);
+            static void RowEchelon(std::vector<std::vector<ld>>& matrix);
+            static ld Determinant(std::vector<std::vector<ld>> matrix);
     };
     class SearchAlgorithm{
         public:
