@@ -1,1 +1,1 @@
-Here are some useful math/computer science algorithms arranged nicely in a library. Use linux to compile the library and link with g++ example.cpp -lCSALG.
+Here are some useful math/computer science algorithms arranged nicely in a library. Use Linux (g++) to compile the library (cd into the directory and run ./compile.sh) and link the with your file using g++ example.cpp -lCSALG.
