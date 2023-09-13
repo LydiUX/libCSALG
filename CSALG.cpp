@@ -239,7 +239,7 @@ namespace CSALG{
         ld h = (evaluatedx - initx) / steps;
         ld evaluatedy = 0;
         for (int i = 0; i < steps; i++){
-            ld evaluatedy = inity + h * (*f)(initx, inity);
+            evaluatedy = inity + h * (*f)(initx, inity);
             inity = evaluatedy;
             initx += h;
         }
