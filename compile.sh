@@ -1,8 +1,11 @@
 #!/bin/bash
 
-sudo g++ -c CSALG.cpp;
-sudo ar -rcs libCSALG.a CSALG.o;
-sudo cp -i CSALG.hpp /usr/local/include;
-sudo mv libCSALG.a /usr/local/lib;
-sudo rm CSALG.o
+GREEN='\033[0;32m';
+CLEAR='\033[0m';
+sudo g++ -v -c CSALG.cpp;
+sudo ar -v -rcs libCSALG.a CSALG.o;
+sudo cp -v CSALG.hpp /usr/local/include;
+sudo mv -v libCSALG.a /usr/local/lib;
+sudo rm -v CSALG.o;
+echo -e "${GREEN}Compilation Succeeded${CLEAR}"
 
