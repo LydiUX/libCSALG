@@ -13,6 +13,7 @@
 #pragma GCC visibility push(default)
 
 #include <vector>
+#include <complex>
 
 typedef long double ld;
 
@@ -47,6 +48,8 @@ namespace CSALG{
             static int LCM(int a, int b);
             static void RowEchelon(std::vector<std::vector<ld>>& matrix);
             static ld Determinant(std::vector<std::vector<ld>> matrix);
+            static void FFT(std::vector<std::complex<ld>>& vec);
+            static void IFFT(std::vector<std::complex<ld>>& vec);
     };
     class SearchAlgorithm{
         public:

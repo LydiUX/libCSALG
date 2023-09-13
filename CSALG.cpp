@@ -13,6 +13,8 @@
 #include <algorithm>
 #include <cstring>
 #include <stdexcept>
+#include <complex>
+#define PI 3.14159265358979323846264
 
 typedef long double ld;
 
@@ -376,5 +378,44 @@ namespace CSALG{
             det *= matrix[i][i];
         }
         return det;
+    }
+    void MathAlgorithm::FFT(std::vector<std::complex<ld>>& vec){
+        int n = vec.size();
+        if (n == 1){
+            return;
+        }
+        std::complex<ld> root;
+        std::complex<ld> mult(1, 0);
+        root.real(cos(2 * PI / n));
+        root.imag(sin(2 * PI / n));
+        std::vector<std::complex<ld>> even;
+        std::vector<std::complex<ld>> odd;
+        for (int i = 0; i < n; i += 2){
+            even.push_back(vec[i]);
+        }
+        for (int i = 1; i < n; i += 2){
+            odd.push_back(vec[i]);
+        }
+        FFT(even);
+        FFT(odd);
+        for (int i = 0; i < n / 2; i++){
+            vec[i] = even[i] + mult * odd[i];
+            vec[i + n / 2] = even[i] - mult * odd[i];
+            mult *= root;
+        }
+    }
+    void MathAlgorithm::IFFT(std::vector<std::complex<ld>>& vec){
+        int n = vec.size();
+        if (n == 1){
+            return;
+        }
+        for (int i = 0; i < n; i++){
+            vec[i] = std::conj(vec[i]);
+        }
+        FFT(vec);
+        for (int i = 0; i < n; i++){
+            vec[i] = std::conj(vec[i]);
+            vec[i] /= n;
+        }
     }
 }
