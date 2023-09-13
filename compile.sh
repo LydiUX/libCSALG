@@ -7,5 +7,5 @@ sudo ar -v -rcs libCSALG.a CSALG.o;
 sudo cp -v CSALG.hpp /usr/local/include;
 sudo mv -v libCSALG.a /usr/local/lib;
 sudo rm -v CSALG.o;
-echo -e "${GREEN}Compilation Succeeded${CLEAR}"
+echo -e "${GREEN}Compilation Finished${CLEAR}"
 
