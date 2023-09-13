@@ -379,7 +379,7 @@ namespace CSALG{
         }
         return det;
     }
-    void MathAlgorithm::FFT(std::vector<std::complex<ld>>& vec){
+    void FFTUtil(std::vector<std::complex<ld>>& vec){
         int n = vec.size();
         if (n == 1){
             return;
@@ -396,12 +396,19 @@ namespace CSALG{
         for (int i = 1; i < n; i += 2){
             odd.push_back(vec[i]);
         }
-        FFT(even);
-        FFT(odd);
+        FFTUtil(even);
+        FFTUtil(odd);
         for (int i = 0; i < n / 2; i++){
             vec[i] = even[i] + mult * odd[i];
             vec[i + n / 2] = even[i] - mult * odd[i];
             mult *= root;
+        }
+    }
+    void MathAlgorithm::FFT(std::vector<std::complex<ld>>& vec){
+        int n = vec.size();
+        FFTUtil(vec);
+        for (int i = 0; i < n; i++){
+            vec[i] = std::conj(vec[i]);
         }
     }
     void MathAlgorithm::IFFT(std::vector<std::complex<ld>>& vec){
@@ -409,10 +416,7 @@ namespace CSALG{
         if (n == 1){
             return;
         }
-        for (int i = 0; i < n; i++){
-            vec[i] = std::conj(vec[i]);
-        }
-        FFT(vec);
+        FFTUtil(vec);
         for (int i = 0; i < n; i++){
             vec[i] = std::conj(vec[i]);
             vec[i] /= n;
