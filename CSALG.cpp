@@ -273,7 +273,7 @@ namespace CSALG{
     ld Analysis::RungeKutta4(ld (*f)(ld, ld), ld initx, ld inity, ld evaluatedx, int steps){
         ld h = (evaluatedx - initx) / steps;
         ld evaluatedy = 0;
-        for (int64_t i = 0; i < steps; i++){
+        for (int i = 0; i < steps; i++){
             ld k1 = h * (*f)(initx, inity);
             ld k2 = h * (*f)(initx + 0.5 * h, inity + 0.5 * k1);
             ld k3 = h * (*f)(initx + 0.5 * h, inity + 0.5 * k2);
