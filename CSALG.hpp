@@ -51,7 +51,7 @@ namespace CSALG{
             static void FFT(std::vector<std::complex<ld>>& vec);
             static void IFFT(std::vector<std::complex<ld>>& vec);
     };
-    class SearchAlgorithm{
+    class DataStructure{
         public:
             static void BreathFirst(int arr[], int n);
             static void DepthFirst(int arr[], int n);
