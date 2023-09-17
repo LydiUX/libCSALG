@@ -15,6 +15,7 @@
 #include <stdexcept>
 #include <complex>
 #define PI 3.14159265358979323846264
+#pragma GCC optimize("Ofast")
 
 typedef long double ld;
 typedef long long ll;
