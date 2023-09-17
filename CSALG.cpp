@@ -17,6 +17,7 @@
 #define PI 3.14159265358979323846264
 
 typedef long double ld;
+typedef long long ll;
 
 namespace CSALG{
     void SortingAlgorithm::BubbleSort(int arr[], int n){
@@ -421,5 +422,19 @@ namespace CSALG{
             vec[i] = std::conj(vec[i]);
             vec[i] /= n;
         }
+    }
+    ll MathAlgorithm::ModExp(ll a, ll p, ll mod){
+        if (a == 0){
+            return 0;
+        }
+        ll res = 1;
+        a %= mod;
+        for (; p > 0; p >>= 1){
+            if (p & 1){
+                res = (res % mod * a % mod) % mod;
+            }
+            a = (a % mod * a % mod) % mod;
+        }
+        return res;
     }
 }

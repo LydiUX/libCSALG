@@ -16,6 +16,7 @@
 #include <complex>
 
 typedef long double ld;
+typedef long long ll;
 
 namespace CSALG{
     class SortingAlgorithm{
@@ -50,6 +51,7 @@ namespace CSALG{
             static ld Determinant(std::vector<std::vector<ld>> matrix);
             static void FFT(std::vector<std::complex<ld>>& vec);
             static void IFFT(std::vector<std::complex<ld>>& vec);
+            static ll ModExp(ll a, ll p, ll mod);
     };
     class DataStructure{
         public:
