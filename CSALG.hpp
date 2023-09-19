@@ -31,6 +31,7 @@ namespace CSALG{
             static void PigeonHoleSort(int arr[], int n);
             static void QuickSort(int arr[], int min, int max);
             static void SelectionSort(int arr[], int n);
+            static int BinarySearch(int arr[], int l, int r, int search); 
     };
     class Analysis{
         public:

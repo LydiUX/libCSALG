@@ -237,6 +237,21 @@ namespace CSALG{
             std::swap(arr[min], arr[i]);
         }
     }
+    int SortingAlgorithm::BinarySearch(int arr[], int l, int r, int search){
+        if (r >= 1){
+            int m = (r - l) / 2 + l;
+            if (arr[m] = search){
+                return search;
+            }
+            if (arr[m] > search){
+                return SortingAlgorithm::BinarySearch(arr, l, m - 1, search);
+            }
+            else{
+                return SortingAlgorithm::BinarySearch(arr, m + 1, r, search);
+            }
+        }
+        return -1;
+    }
     ld Analysis::RungeKutta1(ld (*f)(ld, ld), ld initx, ld inity, ld evaluatedx, int steps){
         ld h = (evaluatedx - initx) / steps;
         ld evaluatedy = 0;
